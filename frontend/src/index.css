@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-text: #090b09;
+  --color-background: #f9faf9;
+  --color-primary: #7ea472;
+  --color-secondary: #b4cfab;
+  --color-accent: #8cbd7c;
+}
+
+@layer utilities {
+  .animate-modal-overlay {
+    animation: fadeIn 0.2s ease-out;
+  }
+  .animate-modal-content {
+    animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .animate-modal-overlay-out {
+    animation: fadeOut 0.25s ease-in forwards;
+  }
+  .animate-modal-content-out {
+    animation: popOut 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  @keyframes popOut {
+    from { opacity: 1; transform: scale(1) translateY(0); }
+    to { opacity: 0; transform: scale(0.95) translateY(10px); }
+  }
+}
