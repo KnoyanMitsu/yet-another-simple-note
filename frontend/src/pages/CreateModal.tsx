@@ -2,7 +2,7 @@ import AceUIBlankModal from "../components/modal/AceUIBlankModal";
 import AceUIInput from "../components/input/AceUIInput";
 import { useState } from "react";
 import AceUIButton from "../components/input/AceUIButton";
-import axios from "axios";
+import Note from "../utils/axios";
 import toast from "react-hot-toast";
 
 type Props = {
@@ -18,7 +18,7 @@ function CreateModal({ isOpen, onClose, refresh }: Props) {
   const createNote = async () => {
     try {
       const data = { title, content };
-      const res = await axios.post("http://localhost:5001/api/notes", data);
+      const res = await Note.post("/", data);
       if (res.status === 201) {
         toast.success("Note Has Created");
         onClose();

@@ -37,7 +37,7 @@ function AceUITemplateWithSidebar({
   accountName = "",
   accountImage = "",
   accountRole = "",
-  logoutfunc,
+  logoutfunc = () => {},
   header,
   addButton,
   buttonFunc,

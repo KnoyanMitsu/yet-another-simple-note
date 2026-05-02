@@ -1,4 +1,4 @@
-import axios from "axios";
+import Note from "../utils/axios";
 import AceUIBlankModal from "../components/modal/AceUIBlankModal";
 
 type DetailModalProps = {
@@ -19,7 +19,7 @@ function DetailModal({
 }: DetailModalProps) {
   const deleteNote = async (id: string) => {
     try {
-      const res = await axios.delete(`http://localhost:5001/api/notes/${id}`);
+      const res = await Note.delete(`/${id}`);
       if (res.status === 200) {
         onClose();
         refresh();

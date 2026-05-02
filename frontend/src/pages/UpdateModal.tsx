@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import AceUIBlankModal from "../components/modal/AceUIBlankModal";
 import AceUIInput from "../components/input/AceUIInput";
 import { useState, useEffect } from "react";
 import AceUIButton from "../components/input/AceUIButton";
-import axios from "axios";
 import toast from "react-hot-toast";
+import Note from "../utils/axios";
 
 type Props = {
   isOpen: boolean;
@@ -27,7 +28,7 @@ function UpdateModal({ isOpen, onClose, refresh, selectedNote }: Props) {
   const updateNote = async () => {
     try {
       const data = { title, content };
-      const res = await axios.put(`http://localhost:5001/api/notes/${selectedNote._id}`, data);
+      const res = await Note.put(`/${selectedNote._id}`, data);
       if (res.status === 200) {
         toast.success("Note Has Updated");
         onClose();
