@@ -18,7 +18,7 @@ function AceUIButton({
   return (
     <>
       <button
-        className={`${style === "bold" ? "bg-secondary p-4 text-white font-bold" : "border border-accent"} text-primary hover:bg-primary hover:text-background disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-primary transition-colors duration-300 rounded-md p-2`}
+        className={`${style === "bold" ? "bg-primary p-4 text-white font-bold" : "border border-accent"} cursor-pointer text-primary hover:bg-primary hover:text-background disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-primary transition-colors duration-300 rounded-md p-2`}
         onClick={onClick}
         disabled={disable}
         type={types}
